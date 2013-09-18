@@ -12,14 +12,6 @@
             [clojure.tools.logging :as log :only [debug info]]))
 
 
-;; private void loadFromPluginsAndUpdate ()
-;; {
-;;  // Discover and add plug-ins
-;;  PluginsManager mgt = new PluginsManager();
-;;  mgt.discover(new File(getAppRootDirectory()+File.separator+"dropins"), true);
-;;  fcMapper.addFromPlugins(mgt);
-;;  }
-
 (defn setup-plugins
   [config-mgr]
   (let [plugins-mgr (PluginsManager.)]
@@ -29,23 +21,6 @@
       (.addFromPlugins config-mgr plugins-mgr)
       )))
 
-  ;; private void initialize ()
-  ;; {
-  ;;  // Create the mapper and load it with all parameters editor info
-  ;;  fcMapper = new FilterConfigurationMapper();
-  ;;  DefaultFilters.setMappings(fcMapper, false, false);
-  ;;  // Instead create a map with extensions -> filter
-  ;;  extensionsMap = new Hashtable<String, String>();
-  ;;  extensionsMap.put(".docx", "okf_openxml");
-  ;;  extensionsMap.put(".pptx", "okf_openxml");
-  ;;  extensionsMap.put(".xlsx", "okf_openxml");
-  ;;  ...
-  ;; if ( specifiedConfigIdPath != null )
-  ;;   {
-  ;;    fcMapper.setCustomConfigurationsDirectory(specifiedConfigIdPath);
-  ;;    }
-  ;;   loadFromPluginsAndUpdate();
-  ;;  }
 (defn setup
   [config-mgr]
   (let [filter-map {  ;; what's the purpose of this?
@@ -59,21 +34,6 @@
       (setup-plugins config-mgr)))
   )
 
-
-;; private void showAllConfigurations ()
-;; {
-;;  initialize();
-;;  // Add the custom configurations
-;;  fcMapper.updateCustomConfigurations();
-
-;;  LOGGER.info("List of all filter configurations available:");
-;;  Iterator<FilterConfiguration> iter = fcMapper.getAllConfigurations();
-;;  FilterConfiguration config;
-;;  while ( iter.hasNext() ) {
-;;                            config = iter.next();
-;;                            LOGGER.info(" - {} = {}", config.configId, config.description);
-;;                            }
-;;  }
 (defn configs [& args]
   (let [config-mgr (FilterConfigurationMapper.)]
     (setup config-mgr)
