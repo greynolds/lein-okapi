@@ -1,6 +1,6 @@
 # lein-okapi
 
-A Leiningen plugin to do many wonderful things with the Okapi
+A Leiningen plugin to do many wonderful things with the [Okapi](http://okapi.opentag.com)
 Translation and Localisation Framework.
 
 # Status:  pre-alpha
