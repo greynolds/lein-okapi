@@ -7,7 +7,13 @@ Translation and Localisation Framework.
 
 ## Prerequisites
 
-You have to build and install Okapi locally, so that the Okapi jars
+This is not yet pushed to clojars, so you have to clone it and run
+
+     $ lein install
+
+in order to use it.
+
+You also have to build and install Okapi locally, so that the Okapi jars
 get put into the maven repo (~/.m2/repository) that leiningen uses.
 
 ## Usage
